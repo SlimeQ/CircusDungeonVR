@@ -213,6 +213,12 @@ public class MainMenuController : MonoBehaviour
     /// </summary>
     public void CloseApp()
     {
+        StartCoroutine(Quit());
+    }
+
+    private IEnumerator Quit()
+    {
+        yield return new WaitForSeconds(3f);
         GameManager.instance.OnApplicationQuit();
-    }    
+    }
 }

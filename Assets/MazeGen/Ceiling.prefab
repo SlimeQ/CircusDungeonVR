@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 4356624719410498095}
   - component: {fileID: 5804449027960850916}
   - component: {fileID: 3325939575179382004}
-  - component: {fileID: 6210146813753389061}
+  - component: {fileID: 1011796026665511449}
   m_Layer: 0
-  m_Name: Wall
+  m_Name: Ceiling
   m_TagString: prefabs
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -62,7 +62,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: b9548514f7b055d4ba1e833cb52f5859, type: 2}
+  - {fileID: 2100000, guid: 140712c788d34614387f98b36dce7990, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -84,7 +84,7 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &6210146813753389061
+--- !u!65 &1011796026665511449
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -103,5 +103,5 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1.0000001, y: 1, z: 1}
+  m_Size: {x: 1.0000001, y: 1.0000002, z: 1.0000002}
   m_Center: {x: 0, y: 0, z: 0}
