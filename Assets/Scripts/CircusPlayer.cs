@@ -1,9 +1,12 @@
-﻿using KinematicCharacterController;
+﻿using System;
+using KinematicCharacterController;
 using KinematicCharacterController.Examples;
 using UnityEngine;
 
 public class CircusPlayer : MonoBehaviour
 {
+    public static CircusPlayer instance;
+    
     public CircusCharacterController Character;
     public CircusCharacterCamera CharacterCamera;
 
@@ -12,6 +15,11 @@ public class CircusPlayer : MonoBehaviour
     private const string MouseScrollInput = "Mouse ScrollWheel";
     private const string HorizontalInput = "Horizontal";
     private const string VerticalInput = "Vertical";
+
+    private void Awake()
+    {
+        instance = this;
+    }
 
     private void Start()
     {
