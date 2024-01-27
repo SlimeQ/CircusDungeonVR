@@ -308,6 +308,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   size: 10
+  holes: {x: 25, y: 75}
   waitingTimeBeforeStart: 2
   timeLimited: 1
   timeIteration: 0.01

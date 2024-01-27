@@ -8,6 +8,7 @@ using Random = UnityEngine.Random;
 public class MazeGenerator : MonoBehaviour
 {
     public int size = 10;
+    public Vector2Int holes = new Vector2Int(25, 75);
     public float waitingTimeBeforeStart = 1f;
     public bool timeLimited = true;
     public float timeIteration = 0.1f;
@@ -110,7 +111,7 @@ public class MazeGenerator : MonoBehaviour
             int randomIndexCell = Random.Range(0, size * size);
             Cell randomCell = _cells[randomIndexCell];
             int destroyIndex = 0;
-            int wallCount = Random.Range(0, 4);
+            int wallCount = Random.Range(1, 4);
 
             for (destroyIndex = 0; destroyIndex < wallCount; destroyIndex++)
             {
@@ -140,10 +141,33 @@ public class MazeGenerator : MonoBehaviour
             iterations++;
             if(timeLimited && iterations%stepIteration==0)yield return new WaitForSeconds(timeIteration);
         }        
-        yield return new WaitForSeconds(0.1f);        
-        StartCoroutine(Dfs());
+        yield return new WaitForSeconds(0.1f);
+        MakeHoles();
+        //StartCoroutine(Dfs());
     }
-    
+
+    private void MakeHoles()
+    {
+        int max = size * size;
+        int i= 0;
+        int low = (int)(max * ((float)(holes.x) / 100f));
+        int hi = (int)(max * ((float)(holes.y) / 100f));
+        int hole = UnityEngine.Random.Range(low, hi+1);
+        for (i = 0; i < hole; i++)
+        {
+            int index = UnityEngine.Random.Range(0, max);
+            int wallindex = 0;
+            for (wallindex = 0; wallindex < 4; wallindex++)
+            {
+                bool perim = IsPerimetralWall(index, wallindex);
+                if (!perim)
+                {
+                    _cells[index].DestroyWall(wallindex);
+                }
+            }
+        }
+    }
+
     
         private bool IsPerimetralWall(int cellIndex, int wallIndex)
         {
