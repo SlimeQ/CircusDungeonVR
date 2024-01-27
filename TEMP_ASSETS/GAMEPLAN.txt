@@ -1,0 +1,25 @@
+3D Maze Generator
+Clown-themed
+
+Powerups:
+Big Ears (auto-navigator)
+Bubble Shield (with bouncing)
+Sticky Clown shoes (grav reversal)
+The funhouse Mirror (invis)
+Clown car (insta kill car, invincible)
+Health pickups
+Turn off lights/ngith vision goggles
+Nose (poison gas)
+
+Weapons:
+Water gun (machine gun)
+Super soaker (shotgun)
+Party Gun (golden gun 1 hit KO)
+Corkgun (generic gun)
+Smokegun
+Banana peels (Mario Kart)
+Juggling balls (bouncy balls)
+
+
+Goal:
+Playing cards
