@@ -15,6 +15,8 @@ public class MazeGenerator : MonoBehaviour
     public bool generate = false;
    
     [SerializeField] private GameObject _wallPrefab;
+    [SerializeField] private GameObject _ceilPrefab;
+    [SerializeField] private GameObject _floorPrefab;
     [SerializeField] private GameObject _cubePrefab;
     private Cell[] _cells;
     private float _wallSize;
@@ -46,13 +48,13 @@ public class MazeGenerator : MonoBehaviour
         {
             for (int z = 0; z < size; z++)
             {
-                var positionCell = new Vector3(x * _wallSize, 0, z * _wallSize);
+                Vector3 positionCell = new Vector3(x * _wallSize, 0, z * _wallSize);
                 Cell newCell = new Cell(x, z, size, positionCell);
                 _cells[x*size + z] = newCell;
 
                 Quaternion wallRotation = Quaternion.Euler(0f, 90f, 0f);
-                var positionWall = positionCell + new Vector3(_wallSize / 2f, 0f, 0f);
-                var newWall = Instantiate(_wallPrefab, positionWall, wallRotation);
+                Vector3 positionWall = positionCell + new Vector3(_wallSize / 2f, 0f, 0f);
+                GameObject newWall = Instantiate(_wallPrefab, positionWall, wallRotation);
                 newCell.AddWall(1, newWall);
 
                 positionWall = positionCell + new Vector3(0f, 0f, _wallSize / 2f);
@@ -81,6 +83,17 @@ public class MazeGenerator : MonoBehaviour
                 {
                     newCell.AddWall(2, _cells[x*size + z - 1].GetWall(0));
                 }
+
+                //Floor generation
+                Quaternion fcRot = Quaternion.Euler(90f, 0f, 0f);
+                Vector3 positionFloor = positionCell + new Vector3(0f, -_wallSize/2f, 0f);
+                GameObject newFloor = Instantiate(_floorPrefab, positionFloor, fcRot);
+                newCell.AddFloor(newFloor);
+
+                //Ceiling generation
+                Vector3 positionceil = positionCell + new Vector3(0f, _wallSize / 2f, 0f);
+                GameObject newceil = Instantiate(_ceilPrefab, positionceil, fcRot);
+                newCell.AddCeil(newceil);
             }
         }
     }
