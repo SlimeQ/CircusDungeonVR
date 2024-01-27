@@ -187,7 +187,6 @@ public class CircusCharacterController : MonoBehaviour, ICharacterController
         relVel /= MaxStableMoveSpeed;
 
         CharacterAnimator.SetFloat("Forward", (relVel.z + 1) / 2);
-        CharacterAnimator.SetFloat("Strafe", relVel.x);
         CharacterAnimator.SetBool("OnGround", Motor.GroundingStatus.IsStableOnGround);
     }
     
