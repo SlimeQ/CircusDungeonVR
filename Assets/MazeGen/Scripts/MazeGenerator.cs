@@ -12,7 +12,7 @@ public class MazeGenerator : MonoBehaviour
     public bool timeLimited = true;
     public float timeIteration = 0.1f;
     public int stepIteration = 10;
-    public bool generate = false;
+    //public bool generate = false;
    
     [SerializeField] private GameObject _wallPrefab;
     [SerializeField] private GameObject _ceilPrefab;
@@ -21,24 +21,22 @@ public class MazeGenerator : MonoBehaviour
     private Cell[] _cells;
     private float _wallSize;
     private DisjointSet _sets;
-    
 
-    private void Update()
+    public void GenerateMaze()
     {
-        if(generate)
-        {
-            generate = false;
-            _cells = new Cell[size*size];
+        //if (generate)
+        //{
+            //generate = false;
+            _cells = new Cell[size * size];
             SpawnEntireGrid(size);
             StartCoroutine(RanMaze());
-        }
-    }
-    
+        //}
+    }    
 
     private void SpawnEntireGrid(int size)
     {
         //deleting all walls in order to generate a new maze
-        var prefabs = (GameObject.FindGameObjectsWithTag("prefabs"));     
+        GameObject[] prefabs = (GameObject.FindGameObjectsWithTag("prefabs"));     
         foreach(GameObject prefab in prefabs) GameObject.Destroy(prefab);
         
         
@@ -104,40 +102,45 @@ public class MazeGenerator : MonoBehaviour
         _sets = new DisjointSet(size * size);
         for (int i = 0; i < size * size; i++) _sets.MakeSet(i);
         yield return new WaitForSeconds(waitingTimeBeforeStart);
-        var source = 0; //low left corner
-        var target = size * size - 1; //top right corner
-        var iterations = 0; //only for 'visualizing' purposes 
+        int source = 0; //low left corner
+        int target = size * size - 1; //top right corner
+        int iterations = 0; //only for 'visualizing' purposes 
         while (_sets.FindSet(source) != _sets.FindSet(target))
         {
-            var randomIndexCell = Random.Range(0, size * size);
-            var randomCell = _cells[randomIndexCell];
-            var randomWall = Random.Range(0, 4);
-            if (randomCell.GetWall(randomWall) == null) continue;
-            
-            var indexNeighbour = -1;
-            if (!IsPerimetralWall(randomIndexCell,randomWall))
-            {
-                if (randomWall == 0) indexNeighbour = randomCell.GetIndex() + 1;
-                if (randomWall == 1) indexNeighbour = randomCell.GetIndex() + size;
-                if (randomWall == 2) indexNeighbour = randomCell.GetIndex() - 1;
-                if (randomWall == 3) indexNeighbour = randomCell.GetIndex() - size;
-            }
+            int randomIndexCell = Random.Range(0, size * size);
+            Cell randomCell = _cells[randomIndexCell];
+            int destroyIndex = 0;
+            int wallCount = Random.Range(0, 4);
 
-            if (indexNeighbour >= 0 && indexNeighbour < size * size)
+            for (destroyIndex = 0; destroyIndex < wallCount; destroyIndex++)
             {
-                if (_sets.FindSet(indexNeighbour) != _sets.FindSet(randomIndexCell)) //not reachable
+                int randomWall = Random.Range(0, 4);
+                GameObject obj = randomCell.GetWall(randomWall);
+                if (obj == null) continue;
+
+                var indexNeighbour = -1;
+                if (!IsPerimetralWall(randomIndexCell, randomWall))
                 {
-                    randomCell.DestroyWall(randomWall);
-                    _sets.UnionSet(indexNeighbour, randomIndexCell);
+                    if (randomWall == 0) indexNeighbour = randomCell.GetIndex() + 1;
+                    if (randomWall == 1) indexNeighbour = randomCell.GetIndex() + size;
+                    if (randomWall == 2) indexNeighbour = randomCell.GetIndex() - 1;
+                    if (randomWall == 3) indexNeighbour = randomCell.GetIndex() - size;
+                }
+
+                if (indexNeighbour >= 0 && indexNeighbour < size * size)
+                {
+                    if (_sets.FindSet(indexNeighbour) != _sets.FindSet(randomIndexCell)) //not reachable
+                    {
+                        randomCell.DestroyWall(randomWall);
+                        _sets.UnionSet(indexNeighbour, randomIndexCell);
+                    }
                 }
             }
             
             iterations++;
             if(timeLimited && iterations%stepIteration==0)yield return new WaitForSeconds(timeIteration);
-        }
-        
-        yield return new WaitForSeconds(0.1f);
-        
+        }        
+        yield return new WaitForSeconds(0.1f);        
         StartCoroutine(Dfs());
     }
     
@@ -213,7 +216,7 @@ public class MazeGenerator : MonoBehaviour
                 node = stack.Pop();
             }
             
-            //visualizing path 
+            //visualizing path
             var backtrackerIndex = size * size - 1;
             while (backtrackerIndex!=0) //0 is index of the source
             {
