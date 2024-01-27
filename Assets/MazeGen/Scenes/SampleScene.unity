@@ -255,7 +255,7 @@ MonoBehaviour:
         calls:
         - genericMenuData:
             selectedComponent: 2
-            selectedMember: 15
+            selectedMember: 11
             isDynamic: 0
           target: {fileID: 1348566487}
           memberName: GenerateMaze
@@ -308,15 +308,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   size: 10
-  holes: {x: 25, y: 75}
-  waitingTimeBeforeStart: 2
-  timeLimited: 1
-  timeIteration: 0.01
-  stepIteration: 1
+  holes: {x: 75, y: 90}
   _wallPrefab: {fileID: 2453578291414994456, guid: b74742d29ab997340a199ebd1ab7450c, type: 3}
   _ceilPrefab: {fileID: 2453578291414994456, guid: f9d8ba11333da4140810d2d954d94ee4, type: 3}
   _floorPrefab: {fileID: 2453578291414994456, guid: 8dfe2b48f3e404744926255947376468, type: 3}
-  _cubePrefab: {fileID: 3197120381459484391, guid: 7732680a9ec9b9e4999d52c70bdfd0b7, type: 3}
 --- !u!1 &2077704943
 GameObject:
   m_ObjectHideFlags: 0
