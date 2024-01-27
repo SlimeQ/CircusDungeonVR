@@ -1,0 +1,113 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: edac79059a45d244a8050315593a7e9e, type: 3}
+  m_Name: Unknown
+  m_EditorClassIdentifier: 
+  _rewiredInputManager: {fileID: 0}
+  _dontDestroyOnLoad: 0
+  _openOnStart: 0
+  _keyboardMapDefaultLayout: 0
+  _mouseMapDefaultLayout: 0
+  _joystickMapDefaultLayout: 0
+  _mappingSets:
+  - _mapCategoryId: 0
+    _actionListMode: 0
+    _actionCategoryIds: 00000000
+    _actionIds: 
+  _showPlayers: 1
+  _showControllers: 1
+  _showKeyboard: 1
+  _showMouse: 1
+  _maxControllersPerPlayer: 1
+  _showActionCategoryLabels: 0
+  _keyboardInputFieldCount: 2
+  _mouseInputFieldCount: 1
+  _controllerInputFieldCount: 1
+  _showFullAxisInputFields: 1
+  _showSplitAxisInputFields: 1
+  _allowElementAssignmentConflicts: 0
+  _actionLabelWidth: 200
+  _keyboardColMaxWidth: 360
+  _mouseColMaxWidth: 200
+  _controllerColMaxWidth: 200
+  _inputRowHeight: 40
+  _inputColumnSpacing: 40
+  _inputRowCategorySpacing: 20
+  _invertToggleWidth: 40
+  _defaultWindowWidth: 500
+  _defaultWindowHeight: 400
+  _controllerAssignmentTimeout: 5
+  _preInputAssignmentTimeout: 5
+  _inputAssignmentTimeout: 5
+  _axisCalibrationTimeout: 5
+  _ignoreMouseXAxisAssignment: 1
+  _ignoreMouseYAxisAssignment: 1
+  _screenToggleAction: -1
+  _screenOpenAction: -1
+  _screenCloseAction: -1
+  _universalCancelAction: -1
+  _universalCancelClosesScreen: 1
+  _showInputBehaviorSettings: 0
+  _inputBehaviorSettings: []
+  _useThemeSettings: 1
+  _themeSettings: {fileID: 0}
+  _language: {fileID: 0}
+  prefabs:
+    _button: {fileID: 0}
+    _fitButton: {fileID: 0}
+    _inputGridLabel: {fileID: 0}
+    _inputGridHeaderLabel: {fileID: 0}
+    _inputGridFieldButton: {fileID: 0}
+    _inputGridFieldInvertToggle: {fileID: 0}
+    _window: {fileID: 0}
+    _windowTitleText: {fileID: 0}
+    _windowContentText: {fileID: 0}
+    _fader: {fileID: 0}
+    _calibrationWindow: {fileID: 0}
+    _inputBehaviorsWindow: {fileID: 0}
+    _centerStickGraphic: {fileID: 0}
+    _moveStickGraphic: {fileID: 0}
+  references:
+    _canvas: {fileID: 0}
+    _mainCanvasGroup: {fileID: 0}
+    _mainContent: {fileID: 0}
+    _mainContentInner: {fileID: 0}
+    _playersGroup: {fileID: 0}
+    _controllerGroup: {fileID: 0}
+    _controllerGroupLabelGroup: {fileID: 0}
+    _controllerSettingsGroup: {fileID: 0}
+    _assignedControllersGroup: {fileID: 0}
+    _settingsAndMapCategoriesGroup: {fileID: 0}
+    _settingsGroup: {fileID: 0}
+    _mapCategoriesGroup: {fileID: 0}
+    _inputGridGroup: {fileID: 0}
+    _inputGridContainer: {fileID: 0}
+    _inputGridHeadersGroup: {fileID: 0}
+    _inputGridVScrollbar: {fileID: 0}
+    _inputGridScrollRect: {fileID: 0}
+    _inputGridInnerGroup: {fileID: 0}
+    _controllerNameLabel: {fileID: 0}
+    _removeControllerButton: {fileID: 0}
+    _assignControllerButton: {fileID: 0}
+    _calibrateControllerButton: {fileID: 0}
+    _doneButton: {fileID: 0}
+    _restoreDefaultsButton: {fileID: 0}
+    _defaultSelection: {fileID: 0}
+    _fixedSelectableUIElements: []
+    _mainBackgroundImage: {fileID: 0}
+  _showPlayersGroupLabel: 1
+  _showControllerGroupLabel: 1
+  _showAssignedControllersGroupLabel: 1
+  _showSettingsGroupLabel: 1
+  _showMapCategoriesGroupLabel: 1
+  _showControllerNameLabel: 1
+  _showAssignedControllers: 1
