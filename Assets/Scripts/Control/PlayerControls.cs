@@ -379,7 +379,7 @@ public class PlayerControls : MonoBehaviour
                 //If neither up or down
 
                 //Get amount of time shoot button has been pressed; if > 0f, then fire onAHeld event
-                float held = player.GetButtonTimePressed(shoot);
+                float held = (float)(player.GetButtonTimePressed(shoot));
                 if (held > 0f)
                 {
                     StartCoroutine(InvokeEvent(onAHeld));
