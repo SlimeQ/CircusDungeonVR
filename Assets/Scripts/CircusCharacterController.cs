@@ -36,11 +36,17 @@ public class CircusCharacterController : MonoBehaviour, ICharacterController
     public Transform CameraFollowPoint;
     public float CrouchedCapsuleHeight = 1f;
 
+    [Header("Animation Parameters")]
+    public Animator CharacterAnimator;
+    public float ForwardAxisSharpness = 10;
+    public float TurnAxisSharpness = 5;
+    
     public CharacterState CurrentCharacterState { get; private set; }
 
     private Collider[] _probedColliders = new Collider[8];
     private RaycastHit[] _probedHits = new RaycastHit[8];
     private Vector3 _moveInputVector;
+    private Vector2 _rawMoveInputVector;
     private Vector3 _lookInputVector;
     private bool _jumpRequested = false;
     private bool _jumpConsumed = false;
@@ -175,6 +181,16 @@ public class CircusCharacterController : MonoBehaviour, ICharacterController
 
     private Quaternion _tmpTransientRot;
 
+    private void Update()
+    {
+        var relVel = Motor.transform.InverseTransformVector(Motor.Velocity);
+        relVel /= MaxStableMoveSpeed;
+
+        CharacterAnimator.SetFloat("Forward", (relVel.z + 1) / 2);
+        CharacterAnimator.SetFloat("Strafe", relVel.x);
+        CharacterAnimator.SetBool("OnGround", Motor.GroundingStatus.IsStableOnGround);
+    }
+    
     /// <summary>
     /// (Called by KinematicCharacterMotor during its update cycle)
     /// This is called before the character begins its movement update
