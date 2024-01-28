@@ -73,7 +73,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1094209985915610047}
-  - component: {fileID: 4465673948372610993}
+  - component: {fileID: -200560897538854925}
   m_Layer: 0
   m_Name: CorkGun
   m_TagString: Untagged
@@ -98,7 +98,7 @@ Transform:
   - {fileID: 717986000714557874}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: -180, y: 0, z: 0}
---- !u!114 &4465673948372610993
+--- !u!114 &-200560897538854925
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -107,10 +107,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 3312424334747594291}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1db65e93e9ec08a4eb598db532f56923, type: 3}
+  m_Script: {fileID: 11500000, guid: e0e987e513b348a8bba54ffac2f43c7c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   muzzleTransform: {fileID: 5447935420175870722}
+  projectilePrefab: {fileID: 8675786895843886281, guid: a6628b1f91b0e9f4a9104472e58826fe, type: 3}
+  muzzleVelocity: 120
 --- !u!1 &4894847599595114260
 GameObject:
   m_ObjectHideFlags: 0
@@ -135,13 +137,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4894847599595114260}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: -0.589, z: 0.026}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 132804223728883432}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!1001 &5475625503461536825
 PrefabInstance:
   m_ObjectHideFlags: 0

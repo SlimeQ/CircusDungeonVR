@@ -5,11 +5,12 @@ using KinematicCharacterController;
 using System;
 using KinematicCharacterController.Examples;
 
-public class CircusCharacterController : MonoBehaviour, ICharacterController
+public class CircusCharacterController : MonoBehaviour, ICharacterController, ICircusKillable
 {
     public KinematicCharacterMotor Motor;
 
     public Transform headPitchRoot;
+    public CircusGun currentWeapon;
     
     [Header("Stable Movement")]
     public float MaxStableMoveSpeed = 10f;
@@ -127,6 +128,21 @@ public class CircusCharacterController : MonoBehaviour, ICharacterController
         Quaternion cameraPlanarRotation = Quaternion.LookRotation(cameraPlanarDirection, Motor.CharacterUp);
 
         headPitchRoot.localRotation = Quaternion.Euler(inputs.LookPitch, 0, 0);
+
+        if (inputs.FireDown)
+        {
+            if (currentWeapon != null)
+            {
+                currentWeapon.StartFire();
+            }
+        }
+        if (inputs.FireUp)
+        {
+            if (currentWeapon != null)
+            {
+                currentWeapon.StopFire();
+            }
+        }
         
         switch (CurrentCharacterState)
         {
@@ -496,4 +512,9 @@ public class CircusCharacterController : MonoBehaviour, ICharacterController
         public void OnDiscreteCollisionDetected(Collider hitCollider)
         {
         }
-    }
+
+        public void Kill()
+        {
+            throw new NotImplementedException();
+        }
+}

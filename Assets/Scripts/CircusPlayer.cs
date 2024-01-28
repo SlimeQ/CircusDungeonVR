@@ -99,6 +99,8 @@ public class CircusPlayer : MonoBehaviour
         characterInputs.CrouchDown = Input.GetKeyDown(KeyCode.C);
         characterInputs.CrouchUp = Input.GetKeyUp(KeyCode.C);
         characterInputs.LookPitch = CharacterCamera.TargetVerticalAngle;
+        characterInputs.FireDown = Input.GetMouseButtonDown(0);
+        characterInputs.FireUp = Input.GetMouseButtonUp(0);
 
         // Apply inputs to character
         Character.SetInputs(ref characterInputs);
