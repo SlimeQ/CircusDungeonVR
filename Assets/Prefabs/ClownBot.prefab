@@ -919,6 +919,7 @@ GameObject:
   - component: {fileID: 4846752539165563481}
   - component: {fileID: 6171050000470006798}
   - component: {fileID: 8851511701766689455}
+  - component: {fileID: 1926311664955367446}
   m_Layer: 9
   m_Name: ClownBot
   m_TagString: Untagged
@@ -978,6 +979,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Motor: {fileID: 4846752539165563481}
+  headPitchRoot: {fileID: 0}
+  currentWeapon: {fileID: 0}
   MaxStableMoveSpeed: 10
   StableMovementSharpness: 15
   OrientationSharpness: 20
@@ -1084,6 +1087,19 @@ MonoBehaviour:
   MovementPeriod: 1
   Characters:
   - {fileID: 4005428057680011317}
+--- !u!114 &1926311664955367446
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4615402241600586140}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c72502dfe1fe92438f89f4fc0d3b088, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 100
 --- !u!1 &4619739149414897800
 GameObject:
   m_ObjectHideFlags: 0
