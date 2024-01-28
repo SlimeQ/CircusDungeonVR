@@ -25,6 +25,7 @@ namespace KinematicCharacterController.Examples
         public bool JumpDown;
         public bool CrouchDown;
         public bool CrouchUp;
+        public float LookPitch;
     }
 
     public struct AICharacterInputs
@@ -152,6 +153,8 @@ namespace KinematicCharacterController.Examples
                 cameraPlanarDirection = Vector3.ProjectOnPlane(inputs.CameraRotation * Vector3.up, Motor.CharacterUp).normalized;
             }
             Quaternion cameraPlanarRotation = Quaternion.LookRotation(cameraPlanarDirection, Motor.CharacterUp);
+            
+            
 
             switch (CurrentCharacterState)
             {

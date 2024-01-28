@@ -45,6 +45,7 @@ public class CircusCharacterCamera : MonoBehaviour
     private bool _distanceIsObstructed;
     private float _currentDistance;
     private float _targetVerticalAngle;
+    public float TargetVerticalAngle => _targetVerticalAngle;
     private RaycastHit _obstructionHit;
     private int _obstructionCount;
     private RaycastHit[] _obstructions = new RaycastHit[MaxObstructions];
