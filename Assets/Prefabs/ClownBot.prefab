@@ -676,7 +676,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   songOnStart: 0
-  sfxOnStart: 19
+  sfxOnStart: 23
   sfxOnStart_type: 0
   sfxOnStart_loop: 0
   sfxOnStart_volume: 1
@@ -1040,7 +1040,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Capsule: {fileID: 4402047490970679553}
-  audio: {fileID: 8587775721612448346}
+  audio: {fileID: 0}
   CapsuleRadius: 0.5
   CapsuleHeight: 2
   CapsuleYOffset: 1
@@ -1124,7 +1124,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c72502dfe1fe92438f89f4fc0d3b088, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 100
+  _audio: {fileID: 8587775721612448346}
+  hitSFX: 14000000
+  deathSFX: 0d0000000e0000000f00000010000000
+  health: 40
 --- !u!1 &4619739149414897800
 GameObject:
   m_ObjectHideFlags: 0

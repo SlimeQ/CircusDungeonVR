@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class NavMeshGenerator : MonoBehaviour
 {
+    public LoadScene scene;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -14,10 +16,17 @@ public class NavMeshGenerator : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        ResetScene();
         //if (Input.GetKeyDown(KeyCode.N))
         //{
-            
+
         //}
+    }
+
+    private void ResetScene()
+    {
+        bool reset = Input.GetKeyDown(KeyCode.Tab);
+        if(reset){scene.LoadSceneDelayed(0f);}
     }
 
     public void InitNavMesh()

@@ -114,6 +114,7 @@ MonoBehaviour:
   muzzleTransform: {fileID: 5447935420175870722}
   audio: {fileID: 3791404360064734255}
   sfxClip: 110000001200000016000000
+  fireRate: 0.4
   projectilePrefab: {fileID: 8675786895843886281, guid: a6628b1f91b0e9f4a9104472e58826fe, type: 3}
   muzzleVelocity: 120
 --- !u!114 &3791404360064734255

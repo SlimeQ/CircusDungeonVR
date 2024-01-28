@@ -45,6 +45,7 @@ public class Audio : MonoBehaviour
         GUNCORK_BANG,
         GUNCORK_POP,
         PUNCH,
+        HIT,
         HITCAR,
         HITOBJ,
 
@@ -80,6 +81,7 @@ public class Audio : MonoBehaviour
         "gunCork_Bang",
         "gunCork_Pop",
         "Punch",
+        "Hit",
         "HitCar",
         "HitObj",
         "NULL"

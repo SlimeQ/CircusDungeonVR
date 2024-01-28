@@ -18,12 +18,19 @@ public class CircusGun : MonoBehaviour
         STOP = 0x02,
     }
 
+    public float fireRate = 0.7f;
+
     protected virtual void DoFire() { }
 
+    private float lastFireTime;
     public void StartFire()
-    {
-        PlayGunSFX(gunSFX.START);
-        DoFire();
+    {        
+        if (Time.time > lastFireTime + fireRate)
+        {
+            PlayGunSFX(gunSFX.START);
+            DoFire();
+            lastFireTime = Time.time;
+        }
     }
     
     public void StopFire()
