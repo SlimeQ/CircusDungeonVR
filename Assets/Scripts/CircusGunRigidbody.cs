@@ -7,6 +7,7 @@ public class CircusGunRigidbody : CircusGun
 
     protected override void DoFire()
     {
+        PlayGunSFX(gunSFX.RUN);
         var projectile = Instantiate(projectilePrefab);
         projectile.transform.SetPositionAndRotation(muzzleTransform.position, muzzleTransform.rotation);
         var rigidbody = projectile.GetComponent<Rigidbody>();

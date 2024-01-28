@@ -74,6 +74,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1094209985915610047}
   - component: {fileID: -200560897538854925}
+  - component: {fileID: 3791404360064734255}
   m_Layer: 0
   m_Name: CorkGun
   m_TagString: Untagged
@@ -111,8 +112,33 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   muzzleTransform: {fileID: 5447935420175870722}
+  audio: {fileID: 3791404360064734255}
+  sfxClip: 110000001200000016000000
   projectilePrefab: {fileID: 8675786895843886281, guid: a6628b1f91b0e9f4a9104472e58826fe, type: 3}
   muzzleVelocity: 120
+--- !u!114 &3791404360064734255
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3312424334747594291}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d73867982e1e3c4aba3e376a02a9e8f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  songOnStart: 0
+  sfxOnStart: 22
+  sfxOnStart_type: 0
+  sfxOnStart_loop: 0
+  sfxOnStart_volume: 1
+  sfxOnStart_pitch: 1
+  sfxOnStart_panStereo: 0
+  jinglePlaying: 0
+  audio_sfx: {fileID: 0}
+  audio_bgm: {fileID: 0}
+  currentSong: 0
 --- !u!1 &4894847599595114260
 GameObject:
   m_ObjectHideFlags: 0
