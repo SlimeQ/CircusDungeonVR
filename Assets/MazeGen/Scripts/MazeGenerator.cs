@@ -100,7 +100,18 @@ public class MazeGenerator : MonoBehaviour
                 //Ceiling generation
                 Vector3 positionceil = positionCell + new Vector3(0f, _wallSize / 2f, 0f);
                 GameObject newceil = Instantiate(_ceilPrefab, positionceil, fcRot, parent);
-                newCell.AddCeil(newceil);
+                if (newceil != null)
+                {
+                    /*
+                    MeshRenderer MR = newceil.GetComponent<MeshRenderer>();                    
+                    if (MR != null)
+                    {
+                        bool state = (!GameManager.instance.DEBUG);
+                        MR.enabled = state;
+                    }
+                    */
+                    newCell.AddCeil(newceil);
+                }
             }
         }
     }
