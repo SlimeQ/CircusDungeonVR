@@ -617,6 +617,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3909982958832366763}
   - component: {fileID: 39106302092014923}
+  - component: {fileID: 8587775721612448346}
   m_Layer: 0
   m_Name: true_clown
   m_TagString: Untagged
@@ -662,6 +663,29 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &8587775721612448346
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3555948216074752354}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d73867982e1e3c4aba3e376a02a9e8f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  songOnStart: 0
+  sfxOnStart: 19
+  sfxOnStart_type: 0
+  sfxOnStart_loop: 0
+  sfxOnStart_volume: 1
+  sfxOnStart_pitch: 1
+  sfxOnStart_panStereo: 0
+  jinglePlaying: 0
+  audio_sfx: {fileID: 0}
+  audio_bgm: {fileID: 0}
+  currentSong: 0
 --- !u!1 &3759799276148179091
 GameObject:
   m_ObjectHideFlags: 0
@@ -1016,6 +1040,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Capsule: {fileID: 4402047490970679553}
+  audio: {fileID: 8587775721612448346}
   CapsuleRadius: 0.5
   CapsuleHeight: 2
   CapsuleYOffset: 1

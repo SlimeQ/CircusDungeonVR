@@ -162,6 +162,7 @@ namespace KinematicCharacterController
         /// </summary>
         [ReadOnly]
         public CapsuleCollider Capsule;
+        public Audio audio;
 
         [Header("Capsule Settings")]
         /// <summary>
@@ -918,6 +919,7 @@ namespace KinematicCharacterController
                         // Handle stable landing
                         BaseVelocity = Vector3.ProjectOnPlane(BaseVelocity, CharacterUp);
                         BaseVelocity = GetDirectionTangentToSurface(BaseVelocity, GroundingStatus.GroundNormal) * BaseVelocity.magnitude;
+                        audio.sfx_play(Audio.SFX.LAND);
                     }
                 }
             }

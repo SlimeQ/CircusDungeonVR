@@ -1612,9 +1612,19 @@ MonoBehaviour:
         isDynamic: 0
         isCallEnabled: 1
   onActivate:
-    inspectorListHeight: 173
+    inspectorListHeight: 218
     persistentCalls:
       calls:
+      - genericMenuData:
+          selectedComponent: 5
+          selectedMember: 22
+          isDynamic: 0
+        target: {fileID: 1735194531}
+        memberName: PlayForward
+        memberType: 8
+        arguments: []
+        isDynamic: 0
+        isCallEnabled: 1
       - genericMenuData:
           selectedComponent: 3
           selectedMember: 2
@@ -1671,7 +1681,7 @@ MonoBehaviour:
           objectArgument: {fileID: 0}
           stringArgument: 
           intArgument: 0
-          floatArgument: 5
+          floatArgument: 3
           boolArgument: 0
           colorArgument: {r: 0, g: 0, b: 0, a: 0}
           vector2Argument: {x: 0, y: 0}

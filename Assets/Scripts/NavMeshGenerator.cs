@@ -14,10 +14,15 @@ public class NavMeshGenerator : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.N))
-        {
-            var surface = GetComponent<NavMeshSurface>();
-            surface.BuildNavMesh();
-        }
+        //if (Input.GetKeyDown(KeyCode.N))
+        //{
+            
+        //}
+    }
+
+    public void InitNavMesh()
+    {
+        NavMeshSurface surface = GetComponent<NavMeshSurface>();
+        surface.BuildNavMesh();
     }
 }
