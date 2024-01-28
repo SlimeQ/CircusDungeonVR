@@ -95,6 +95,7 @@ public class CircusPlayer : MonoBehaviour
         characterInputs.JumpDown = Input.GetKeyDown(KeyCode.Space);
         characterInputs.CrouchDown = Input.GetKeyDown(KeyCode.C);
         characterInputs.CrouchUp = Input.GetKeyUp(KeyCode.C);
+        characterInputs.LookPitch = CharacterCamera.TargetVerticalAngle;
 
         // Apply inputs to character
         Character.SetInputs(ref characterInputs);

@@ -9,6 +9,8 @@ public class CircusCharacterController : MonoBehaviour, ICharacterController
 {
     public KinematicCharacterMotor Motor;
 
+    public Transform headPitchRoot;
+    
     [Header("Stable Movement")]
     public float MaxStableMoveSpeed = 10f;
     public float StableMovementSharpness = 15f;
@@ -124,6 +126,8 @@ public class CircusCharacterController : MonoBehaviour, ICharacterController
         }
         Quaternion cameraPlanarRotation = Quaternion.LookRotation(cameraPlanarDirection, Motor.CharacterUp);
 
+        headPitchRoot.localRotation = Quaternion.Euler(inputs.LookPitch, 0, 0);
+        
         switch (CurrentCharacterState)
         {
             case CharacterState.Default:
