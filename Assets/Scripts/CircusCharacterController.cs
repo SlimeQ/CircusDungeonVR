@@ -116,6 +116,8 @@ public class CircusCharacterController : MonoBehaviour, ICharacterController, IC
     /// </summary>
     public void SetInputs(ref PlayerCharacterInputs inputs)
     {
+        if (IsDead) return;
+        
         // Clamp input
         Vector3 moveInputVector = Vector3.ClampMagnitude(new Vector3(inputs.MoveAxisRight, 0f, inputs.MoveAxisForward), 1f);
 
@@ -195,6 +197,8 @@ public class CircusCharacterController : MonoBehaviour, ICharacterController, IC
     /// </summary>
     public void SetInputs(ref AICharacterInputs inputs)
     {
+        if (IsDead) return;
+        
         _moveInputVector = inputs.MoveVector;
         _lookInputVector = inputs.LookVector;
     }
@@ -208,6 +212,7 @@ public class CircusCharacterController : MonoBehaviour, ICharacterController, IC
 
         CharacterAnimator.SetFloat("Forward", (relVel.z + 1) / 2);
         CharacterAnimator.SetBool("OnGround", Motor.GroundingStatus.IsStableOnGround);
+        CharacterAnimator.SetBool("Dead", IsDead);
     }
     
     /// <summary>
@@ -280,6 +285,17 @@ public class CircusCharacterController : MonoBehaviour, ICharacterController, IC
     /// </summary>
     public void UpdateVelocity(ref Vector3 currentVelocity, float deltaTime)
     {
+        if (IsDead)
+        {
+            if (Motor.GroundingStatus.IsStableOnGround)
+            {
+                currentVelocity = Vector3.zero;
+                Motor.Capsule.enabled = false;
+                Motor.enabled = false;
+            }
+            return;
+        }
+        
         switch (CurrentCharacterState)
         {
             case CharacterState.Default:
@@ -513,8 +529,9 @@ public class CircusCharacterController : MonoBehaviour, ICharacterController, IC
         {
         }
 
+        public bool IsDead { get; private set; }
         public void Kill()
         {
-            throw new NotImplementedException();
+            IsDead = true;
         }
 }
