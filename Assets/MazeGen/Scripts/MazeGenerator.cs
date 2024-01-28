@@ -7,8 +7,8 @@ using Random = UnityEngine.Random;
 
 public class MazeGenerator : MonoBehaviour
 {
-    public int size = 10;
-    public Vector2Int holes = new Vector2Int(25, 75);
+    public int size = 10;                               //!@ Move into settings
+    public Vector2Int holes = new Vector2Int(25, 75);   //!@ Move into settings
     //public float waitingTimeBeforeStart = 1f;
     //public bool timeLimited = true;
     //public float timeIteration = 0.1f;
@@ -23,8 +23,10 @@ public class MazeGenerator : MonoBehaviour
     private float _wallSize;
     private DisjointSet _sets;
 
-    private GameObject[] playerSpawns;
-    private GameObject[] itemSpawn;
+    public Vector2Int playerSize = new Vector2Int(5, 15);   //!@ Move into settings
+    public Vector2Int itemSize = new Vector2Int(5, 15);     //!@ Move into settings
+    private List<int> playerSpawns;
+    private List<int> itemSpawns;
 
     public void GenerateMaze()
     {
@@ -33,13 +35,16 @@ public class MazeGenerator : MonoBehaviour
         //generate = false;
         _cells = new Cell[size * size];
         SpawnEntireGrid(size);
-        StartCoroutine(RanMaze());
+        //StartCoroutine(RanMaze());
+        RanMaze();
+        //GenerateSpawns();
         //}
     }
 
     private void SpawnEntireGrid(int size)
     {
         //deleting all walls in order to generate a new maze
+        Transform parent = this.gameObject.transform;
         GameObject[] prefabs = (GameObject.FindGameObjectsWithTag("prefabs"));
         foreach (GameObject prefab in prefabs) GameObject.Destroy(prefab);
 
@@ -56,18 +61,18 @@ public class MazeGenerator : MonoBehaviour
 
                 Quaternion wallRotation = Quaternion.Euler(0f, 90f, 0f);
                 Vector3 positionWall = positionCell + new Vector3(_wallSize / 2f, 0f, 0f);
-                GameObject newWall = Instantiate(_wallPrefab, positionWall, wallRotation);
+                GameObject newWall = Instantiate(_wallPrefab, positionWall, wallRotation, parent);
                 newCell.AddWall(1, newWall);
 
                 positionWall = positionCell + new Vector3(0f, 0f, _wallSize / 2f);
-                newWall = Instantiate(_wallPrefab, positionWall, Quaternion.identity);
+                newWall = Instantiate(_wallPrefab, positionWall, Quaternion.identity, parent);
                 newCell.AddWall(0, newWall);
 
                 if (x == 0)
                 {
                     Quaternion wallRotated = Quaternion.Euler(0f, 90f, 0f);
                     positionWall = positionCell + new Vector3(-_wallSize / 2f, 0f, 0f);
-                    newWall = Instantiate(_wallPrefab, positionWall, wallRotated);
+                    newWall = Instantiate(_wallPrefab, positionWall, wallRotated, parent);
                     newCell.AddWall(3, newWall);
                 }
                 else
@@ -78,7 +83,7 @@ public class MazeGenerator : MonoBehaviour
                 if (z == 0)
                 {
                     positionWall = positionCell + new Vector3(0f, 0f, -_wallSize / 2f);
-                    newWall = Instantiate(_wallPrefab, positionWall, Quaternion.identity);
+                    newWall = Instantiate(_wallPrefab, positionWall, Quaternion.identity, parent);
                     newCell.AddWall(2, newWall);
                 }
                 else
@@ -89,19 +94,20 @@ public class MazeGenerator : MonoBehaviour
                 //Floor generation
                 Quaternion fcRot = Quaternion.Euler(90f, 0f, 0f);
                 Vector3 positionFloor = positionCell + new Vector3(0f, -_wallSize / 2f, 0f);
-                GameObject newFloor = Instantiate(_floorPrefab, positionFloor, fcRot);
+                GameObject newFloor = Instantiate(_floorPrefab, positionFloor, fcRot, parent);
                 newCell.AddFloor(newFloor);
 
                 //Ceiling generation
                 Vector3 positionceil = positionCell + new Vector3(0f, _wallSize / 2f, 0f);
-                GameObject newceil = Instantiate(_ceilPrefab, positionceil, fcRot);
+                GameObject newceil = Instantiate(_ceilPrefab, positionceil, fcRot, parent);
                 newCell.AddCeil(newceil);
             }
         }
     }
 
 
-    private IEnumerator RanMaze()
+    //private IEnumerator RanMaze()
+    private void RanMaze()
     {
         _sets = new DisjointSet(size * size);
         for (int i = 0; i < size * size; i++) _sets.MakeSet(i);
@@ -126,9 +132,39 @@ public class MazeGenerator : MonoBehaviour
             //if(timeLimited && iterations%stepIteration==0)yield return new WaitForSeconds(timeIteration);
         }
         //yield return new WaitForSeconds(0.1f);
-        yield return null;
+        //yield return null;
         MakeHoles();
         //StartCoroutine(Dfs());
+    }
+
+    private void CreateSpawns()
+    {
+        int max = size * size;
+        int maxPlayers = GetValueInRange(playerSize);
+        int maxItems = GetValueInRange(itemSize);
+
+        //!@ Insert checks here for islands
+        playerSpawns = new List<int>(maxPlayers);
+        itemSpawns = new List<int>(maxPlayers);
+
+        int i = 0;
+        int index = 0;
+        bool found = false;
+        bool found2 = false;
+        for (i = 0; i < maxPlayers; i++)
+        {
+            index = UnityEngine.Random.Range(0, max);
+            found = (playerSpawns.Contains(index));
+            if (!found){playerSpawns[i] = index;}
+        }
+
+        for (i = 0; i < maxItems; i++)
+        {
+            index = UnityEngine.Random.Range(0, max);
+            found = itemSpawns.Contains(index);
+            found2 = playerSpawns.Contains(index);
+            if (!found && !found2) { playerSpawns[i] = index; }
+        }
     }
 
     private void DestroyWall(Cell randomCell, int randomIndexCell, int randomWall, bool checks)
@@ -167,11 +203,9 @@ public class MazeGenerator : MonoBehaviour
 
     private void MakeHoles()
     {
-        int max = size * size;
         int i = 0;
-        int low = (int)(max * ((float)(holes.x) / 100f));
-        int hi = (int)(max * ((float)(holes.y) / 100f));
-        int hole = UnityEngine.Random.Range(low, hi + 1);
+        int max = size * size;
+        int hole = GetValueInRange(holes);
         for (i = 0; i < hole; i++)
         {
             int index = UnityEngine.Random.Range(0, max);
@@ -189,6 +223,15 @@ public class MazeGenerator : MonoBehaviour
         if (cellIndex % size == size - 1 && wallIndex == 0) return true;
         if ((cellIndex / size) == size - 1 && wallIndex == 1) return true;
         return (cellIndex / size) == 0 && wallIndex == 3;
+    }
+
+    private int GetValueInRange(Vector2Int rng)
+    {
+        int max = size * size;
+        int low = (int)(max * ((float)(rng.x) / 100f));
+        int hi = (int)(max * ((float)(rng.y) / 100f));
+        int result = UnityEngine.Random.Range(low, hi + 1);
+        return result;
     }
 
 

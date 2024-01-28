@@ -5,11 +5,14 @@ using UnityEngine;
 
 public class CircusPlayer : MonoBehaviour
 {
+    [Header("References")]
     public static CircusPlayer instance;
-    
     public CircusCharacterController Character;
     public CircusCharacterCamera CharacterCamera;
 
+    [Header("Profile Health/Ammo")]
+    public float HP = 100f;
+    
     private const string MouseXInput = "Mouse X";
     private const string MouseYInput = "Mouse Y";
     private const string MouseScrollInput = "Mouse ScrollWheel";
@@ -70,9 +73,9 @@ public class CircusPlayer : MonoBehaviour
 
         // Input for zooming the camera (disabled in WebGL because it can cause problems)
         float scrollInput = -Input.GetAxis(MouseScrollInput);
-#if UNITY_WEBGL
-    scrollInput = 0f;
-#endif
+        #if UNITY_WEBGL
+            scrollInput = 0f;
+        #endif
 
         // Apply inputs to the camera
         CharacterCamera.UpdateWithInput(Time.deltaTime, scrollInput, lookInputVector);

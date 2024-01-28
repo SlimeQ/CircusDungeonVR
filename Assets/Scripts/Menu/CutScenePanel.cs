@@ -11,6 +11,6 @@ public class CutScenePanel : MonoBehaviour
     public Text expressionLabel;    //Expression text
     public GameObject nextMarker;   //Next gameobject indicator
 
-    [NamedArrayAttribute(typeof(Characters))]
-    public GameObject[] CutSceneHealthBars = new GameObject[(byte)(Characters.MAX)+1];
+    //[NamedArrayAttribute(typeof(Characters))]
+    //public GameObject[] CutSceneHealthBars = new GameObject[(byte)(Characters.MAX)+1];
 }

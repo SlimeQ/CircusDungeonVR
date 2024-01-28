@@ -34,4 +34,7 @@ Options:
 - Music volume
 - Sound volume
 - Wall/ceil/floor textures
-- 3 Wall decorations
+- 3 Wall decoration textures
+- Holes size% (min/max)
+- playerSpawn% (min/max)
+- itemSpawn% (min/max)

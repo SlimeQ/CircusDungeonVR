@@ -1,4 +1,5 @@
-﻿using UnityEngine.UI;
+﻿using UnityEngine;
+using UnityEngine.UI;
 
 [System.Serializable]
 /// <summary>
@@ -9,21 +10,41 @@ public class PlayerProfile
     public static float max = 100f; //Normal maxHP
     public static float min = 25f;  //Always minHP value
 
+    [Header("Health")]
     public float lowHP = min;                           //Current lowHP value
     public float maxHp = max;                           //Current MaxHP value
     public bool lowHealth_runonce = false;              //Runonce flag for low_health FX
-
-    public Characters character;                        //Character of this player
-    public PlayerType playerType;                       //Type of player (Human or CPU)
     public float hpLeft;                                //HP remaining
+
+    //public Characters character;                      //Character of this player
+    [Header("UserInfo")]
+    public string playerName;                           //Player name    
+    public UnityEngine.Color playerColor;               //Player color
+    public PlayerType playerType;                       //Type of player (Human or CPU)
+
     //public CharacterControllerStarEagle playerObject; //!@ CCSE of the player
 
+    public static PlayerProfile GetDefaultSetup(PlayerType _playerType)
+    {
+        PlayerProfile profile = new PlayerProfile()
+        {
+            lowHealth_runonce = false,
+            //character = Characters.EAGLE,
+            playerName = "Person",
+            playerColor = new UnityEngine.Color(1f, 1f, 1f, 1f),
+            playerType = _playerType,
+            hpLeft = max,
+        };
+        return profile;
+    }
+
+    /*
     public static PlayerProfile GetEagleDefaultSetup()
     {
         return new PlayerProfile()
         {
             lowHealth_runonce = false,
-            character = Characters.EAGLE,
+            //character = Characters.EAGLE,
             playerType = PlayerType.PLAYER,
             hpLeft = max,
         };
@@ -61,17 +82,24 @@ public class PlayerProfile
             hpLeft = max,
         };
     }
+    */
 
     /// <summary>
     /// Gets this profile's character name
     /// </summary>
     /// <returns>Character name</returns>
-    public string GetCharacterName()
+    public string GetCharacterName(bool rich)
     {
-        string name = GetCharacterName(character,null,false,false);
+        const string colorOpen = "<color=";
+        const string colorClose = "</color>";
+
+        //string name = GetCharacterName(character,null,false,false);
+        string name = playerName;
+        if (rich) { name = colorOpen + playerColor + playerName + colorClose; }
         return name;
     }
 
+    /*
     /// <summary>
     /// Gets character name of a selected character type
     /// </summary>
@@ -124,4 +152,5 @@ public class PlayerProfile
         }
         return name;
     }
+    */
 }

@@ -33,7 +33,7 @@ public class PauseScreen : MonoBehaviour
     /// </summary>
     public void Pause()
     {
-        bool RetryEnable = (GameManager.instance.livesLeft > 0);
+        bool RetryEnable = true;//!@ (GameManager.instance.livesLeft > 0);
         UnityEngine.Time.timeScale = 0f;
         paused = true;
         ToggleAudio(paused);

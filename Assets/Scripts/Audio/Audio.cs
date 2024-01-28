@@ -25,8 +25,22 @@ public class Audio : MonoBehaviour
         SFX_MENU_HIGHLIGHT, //Menu higlight SFX
         SFX_MENU_SELECT,    //Menu select SFX
         SFX_PAUSE,          //Pause
-        SFX_UNPAUSE,          //Pause
+        SFX_UNPAUSE,        //Unpause
         SFX_BUZZER,
+        
+        //Ingame stuff
+        CROUCH,
+        JUMP,
+        LAND,
+        FALLING,
+        BLOCK,
+        WALK,
+        DEATH,
+        DEATH2,
+        DEATHFALL,
+        SCREAM,
+        HITCAR,
+        HITOBJ,
 
         SFX_NULL,           //NULL SFX        
         MAX = SFX_NULL      //MAX SFX
@@ -44,6 +58,19 @@ public class Audio : MonoBehaviour
         "UnPause",
         "Buzzer",
 
+        "Crouch",
+        "Jump",
+        "Land",
+        "Falling",
+        "Block",
+        "Walk",
+        "Death",
+        "Death2",
+        "DeathFall",
+        "Scream",
+
+        "HitCar",
+        "HitObj",
         "NULL"
     };
 

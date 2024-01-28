@@ -247,10 +247,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   size: 10
-  holes: {x: 25, y: 75}
-  _wallPrefab: {fileID: 0}
-  _ceilPrefab: {fileID: 0}
-  _floorPrefab: {fileID: 0}
+  holes: {x: 30, y: 50}
+  _wallPrefab: {fileID: 2453578291414994456, guid: b74742d29ab997340a199ebd1ab7450c, type: 3}
+  _ceilPrefab: {fileID: 2453578291414994456, guid: f9d8ba11333da4140810d2d954d94ee4, type: 3}
+  _floorPrefab: {fileID: 2453578291414994456, guid: 8dfe2b48f3e404744926255947376468, type: 3}
+  playerSize: {x: 5, y: 15}
+  itemSize: {x: 5, y: 15}
 --- !u!4 &989833143
 Transform:
   m_ObjectHideFlags: 0
@@ -277,6 +279,7 @@ GameObject:
   - component: {fileID: 1044102873}
   - component: {fileID: 1044102872}
   - component: {fileID: 1044102871}
+  - component: {fileID: 1044102874}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -358,6 +361,35 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1044102874
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1044102870}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b24bddb631c7bc41b95d922f495aad6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  onStart: 1
+  eventsSet:
+  - time: 0
+    onTimerEnd:
+      inspectorListHeight: 83
+      persistentCalls:
+        calls:
+        - genericMenuData:
+            selectedComponent: 2
+            selectedMember: 11
+            isDynamic: 0
+          target: {fileID: 989833142}
+          memberName: GenerateMaze
+          memberType: 8
+          arguments: []
+          isDynamic: 0
+          isCallEnabled: 1
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
