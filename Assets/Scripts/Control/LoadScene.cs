@@ -68,10 +68,10 @@ public class LoadScene : MonoBehaviour
     /// Loads the Map with delay
     /// </summary>
     /// <param name="delay">Timelimit</param>
-    public void LoadMapDelayed(float delay)
+    public void LoadGameDelayed(float delay)
     {
         timer = 0f;                 //Reset timer  
-        sceneName = "Map";         //Set scene to Map
+        sceneName = "Game";         //Set scene to Map
         this.delay = delay;         //Set time limit
         isLoading = true;           //Begin timer
     }

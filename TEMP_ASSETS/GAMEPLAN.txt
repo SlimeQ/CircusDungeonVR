@@ -28,3 +28,13 @@ Playing cards
 
 Sounds:
 Menu select (clown horn) - CC0 - https://freesound.org/people/inplay/sounds/251611/
+
+
+Options:
+- Music volume
+- Sound volume
+- Wall/ceil/floor textures
+- 3 Wall decoration textures
+- Holes size% (min/max)
+- playerSpawn% (min/max)
+- itemSpawn% (min/max)

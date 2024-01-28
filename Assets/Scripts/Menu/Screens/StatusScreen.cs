@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+/*
 /// <summary>
 /// Handles status player images, wrt 3D beaks and 2D images w/o beaks
 /// </summary>
@@ -65,3 +66,4 @@ public class StatusScreen : MonoBehaviour
         }
     }
 }
+*/

@@ -51,8 +51,8 @@ public class GameManager : MonoBehaviour
     
 
     //GameState stuff
-    public byte SaveSlot = 0;                                   //GameSave slot (0-2)    
-    public string SaveName = "NewGame";                         //Name for the savefile
+    //public byte SaveSlot = 0;                                   //GameSave slot (0-2)    
+    //public string SaveName = "NewGame";                         //Name for the savefile
     public GameState gameState = GameState.FMV;                 //Game State
     public GameType gameType = GameType.Null;                   //Game Type
     #endregion
@@ -111,7 +111,7 @@ public class GameManager : MonoBehaviour
     
     //public GameModes gameMode = GameModes.COOP;
     //[HideInInspector] //only for solo mode
-    public Characters selectedCharacter = Characters.EAGLE;
+    //public Characters selectedCharacter = Characters.EAGLE;
     //[HideInInspector]
     public Difficulties difficulty = Difficulties.MEDIUM;
 
@@ -123,7 +123,7 @@ public class GameManager : MonoBehaviour
 
     //Game data
     public List<PlayerProfile> players;                         //PlayerProfiles
-    public int livesLeft = 3;                                   //Amount of lives left
+    //public int livesLeft = 3;                                   //Amount of lives left
     //--------
 
     //More sfx stuff
@@ -171,10 +171,7 @@ public class GameManager : MonoBehaviour
         DEBUG = true;   //!@ 
 
         //If an Audio script DNE, create one
-        if (!audio)
-        {
-            audio = this.gameObject.AddComponent<Audio>();
-        }
+        if (!audio){audio = this.gameObject.AddComponent<Audio>();}
 
         //Set the instance, and DDoL
         instance = this;    
@@ -205,6 +202,7 @@ public class GameManager : MonoBehaviour
         //!@ Old Coffee Code, refactor for usage with StarEagle specifics
         //Create new list of players, set default player profiles
         players = new List<PlayerProfile>();
+        /*
         players.AddRange(new PlayerProfile[]
         {
             PlayerProfile.GetEagleDefaultSetup(),
@@ -213,6 +211,7 @@ public class GameManager : MonoBehaviour
             PlayerProfile.GetDogDefaultSetup()
         }
         );
+        */
         //InitLCD();
     }
 
@@ -1031,6 +1030,7 @@ public enum GameModes
 }
 */
 
+/*
 /// <summary>
 /// Character to play as
 /// </summary>
@@ -1042,6 +1042,7 @@ public enum Characters
     DOG,        //Thomas the Prairie Dog
     MAX = DOG   //MAX used for counting
 };
+*/
 
 public enum PlayerType
 {

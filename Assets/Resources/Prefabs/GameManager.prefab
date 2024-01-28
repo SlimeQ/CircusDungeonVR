@@ -50,17 +50,13 @@ MonoBehaviour:
   audio: {fileID: 8238328871376973781}
   AM_BGM: {fileID: 24100000, guid: f7406130432bacd418943fbf548b176a, type: 2}
   AM_SFX: {fileID: 24100000, guid: 2f7815761d75068448467c9cadf4c5e2, type: 2}
-  SaveSlot: 0
-  SaveName: NewGame
   gameState: 2
   gameType: 1
   levelCompleted: 0
   SceneName: 
-  selectedCharacter: 0
   difficulty: 1
   cursor: 1
   players: []
-  livesLeft: 3
   mvol: 1
   svol: 1
   CapFonts:

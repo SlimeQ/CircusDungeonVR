@@ -610,6 +610,7 @@ public class Localization : MonoBehaviour
             switch (ING_type)
             {
                 #region ING_SpecialCases
+                /*
                 case InGameItem.ING_CHAR_EAGLE:
                 case InGameItem.ING_CHAR_BUNNY:
                 case InGameItem.ING_CHAR_OWL:
@@ -618,6 +619,7 @@ public class Localization : MonoBehaviour
                     Characters c = (Characters)(index);
                     msg = PlayerProfile.GetCharacterName(c, T, false, true);
                     break;
+                */
 
                 /*
                 case InGameItem.ING_LEVEL_NAME:
