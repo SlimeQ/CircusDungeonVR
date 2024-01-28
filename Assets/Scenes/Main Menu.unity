@@ -2527,8 +2527,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d73867982e1e3c4aba3e376a02a9e8f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  songOnStart: 0
-  sfxOnStart: 30
+  songOnStart: 1
+  sfxOnStart: 17
   sfxOnStart_type: 0
   sfxOnStart_loop: 0
   sfxOnStart_volume: 1

@@ -117,28 +117,11 @@ public class Audio : MonoBehaviour
         //Main game songs
         //Based on game theme (Space_Lab chunks)
         GAME_MAINMENU,      //Main Menu     
-        GAME_MAP,           //Map
-        GAME_MISSBRIEF,     //Mission Briefing
-        GAME_BOSS_INTRO,    //Boss intro 
-        GAME_BOSS_BATTLE,   //Boss battle
-        GAME_VICTORY,       //Boss/level victory
+        GAME_CREDITS,       //Credits
+        GAME_GAME,          //Game
+        GAME_VICTORY,       //Victory
         GAME_GAMEOVER,      //Gameover
-        GAME_MAPDIE,        //Death music on retry in map
-        GAME_1UP,           //1up Song
-
-        HERO_THEME,         //Heroic theme/credits
-
-        //Main level music
-        LVL_TRAINING,       //Training level
-        LVL_PLANETWING,     //Planet Wing
-        LVL_2A, LVL_2B,
-        LVL_3A, LVL_3B, LVL_3C,
-        LVL_4A, LVL_4B, LVL_4C,
-        LVL_5A, LVL_5B, LVL_5C,
-        LVL_6A, LVL_6B,
-        LVL_END_A, LVL_END_B,
-        LVL_WARP1,LVL_WARP2,
-        MAX = LVL_WARP2
+        MAX = GAME_GAMEOVER
     };
 
     /// <summary>
@@ -187,26 +170,12 @@ public class Audio : MonoBehaviour
     public BgmPack[] BGMs = new BgmPack[(int)(BGM.MAX)+1]
     {
         new BgmPack("NULL",0f,0f),
-        new BgmPack("Space_Lab_Menus",0f,0f),
-        new BgmPack("Space_Lab_Map",0f,0f),
-        new BgmPack("Space_Lab_MissBrief.vgz",0f,0f),
-        new BgmPack("Space_Lab_Boss_Intro.vgz",0f,0f),
-        new BgmPack("Space_Lab_Boss_Battle.vgz",6.48f,38.48f),
-        new BgmPack("Space_Lab_Victory",30f,44f),
-        new BgmPack("Space_Lab_Gameover",0f,0f),
-        new BgmPack("MapDie",0f,0f),
-        new BgmPack("1up",0f,0f),
-        new BgmPack("Captain",((1f*MinToSec)+24.48f),((2f*MinToSec)+18.2f)),
 
-        new BgmPack("bartune-bar",0f,0f),
-        new BgmPack("bartune-bar",0f,0f),
-        new BgmPack("bartune-bar",0f,0f),new BgmPack("bartune-bar",0f,0f),
-        new BgmPack("bartune-bar",0f,0f),new BgmPack("bartune-bar",0f,0f),new BgmPack("bartune-bar",0f,0f),
-        new BgmPack("bartune-bar",0f,0f),new BgmPack("bartune-bar",0f,0f),new BgmPack("bartune-bar",0f,0f),
-        new BgmPack("bartune-bar",0f,0f),new BgmPack("bartune-bar",0f,0f),new BgmPack("bartune-bar",0f,0f),
-        new BgmPack("bartune-bar",0f,0f),new BgmPack("bartune-bar",0f,0f),
-        new BgmPack("bartune-bar",0f,0f),new BgmPack("bartune-bar",0f,0f),
-        new BgmPack("bartune-bar",0f,0f),new BgmPack("bartune-bar",0f,0f),
+        new BgmPack("title_circus_deluxe",0f,0f),
+        new BgmPack("NULL",0f,0f),
+        new BgmPack("game_clonemc",0f,0f),
+        new BgmPack("NULL",0f,0f),
+        new BgmPack("NULL",0f,0f),
     };
     #endregion
 
